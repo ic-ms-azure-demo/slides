@@ -29,8 +29,7 @@ jobs:
     - name: Build the book
       run: |
         mkdir html
-        jupytext slides.md --to mnb
-	jupytext slides.mnb --to ipynb
+        jupytext slides.md --to ipynb
         jupyter nbconvert slides.ipynb --to slides --stdout > html/index.html
 
     # Push the book's HTML to github-pages

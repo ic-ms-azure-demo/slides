@@ -1,2 +1,5 @@
 jupyter
-jupytext
+jupytext[myst]
+myst-nb
+myst-parser
+
