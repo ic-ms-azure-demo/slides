@@ -30,7 +30,7 @@ jobs:
       run: |
         mkdir html
         jupytext slides.md --to ipynb
-        jupyter nbconvert slides.ipynb --to slides --stdout > html/index.html
+        jupyter nbconvert slides.ipynb --to slides --SlidesExporter.reveal_theme=solarized --stdout > html/index.html
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
