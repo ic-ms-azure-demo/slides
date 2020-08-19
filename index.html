@@ -16,7 +16,7 @@
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/solarized.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -13202,18 +13202,229 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Autograding-on-Jupyter-&amp;-Azure">Autograding on Jupyter &amp; Azure<a class="anchor-link" href="#Autograding-on-Jupyter-&amp;-Azure">&#182;</a></h1><h2 id="Learnings-from-the-ACSE-MSc">Learnings from the ACSE MSc<a class="anchor-link" href="#Learnings-from-the-ACSE-MSc">&#182;</a></h2>
+<h1 id="Whirlwind-tour-of-teaching-with-Jupyter,-autograding-&amp;-Azure">Whirlwind tour of teaching with Jupyter, autograding &amp; Azure<a class="anchor-link" href="#Whirlwind-tour-of-teaching-with-Jupyter,-autograding-&amp;-Azure">&#182;</a></h1><h2 id="Learnings-from-the-ACSE-MSc">Learnings from the ACSE MSc<a class="anchor-link" href="#Learnings-from-the-ACSE-MSc">&#182;</a></h2><h3 id="Gerard-Gorman-g.gorman@ic.ac.uk">Gerard Gorman <a href="mailto:g.gorman@ic.ac.uk">g.gorman@ic.ac.uk</a><a class="anchor-link" href="#Gerard-Gorman-g.gorman@ic.ac.uk">&#182;</a></h3><h3 id="James-Percival-j.percival@ic.ac.uk">James Percival <a href="mailto:j.percival@ic.ac.uk">j.percival@ic.ac.uk</a><a class="anchor-link" href="#James-Percival-j.percival@ic.ac.uk">&#182;</a></h3>
 </div>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Hello-everyone!">Hello everyone!<a class="anchor-link" href="#Hello-everyone!">&#182;</a></h2><p>What we're covering - Part I:</p>
+<h1 id="Health-warning">Health warning<a class="anchor-link" href="#Health-warning">&#182;</a></h1><h3 id="This-is-an-interactive-talk---login-and-follow-along.-We-are-even-giving-you-an-assessment-as-part-of-this-talk-;-)">This is an interactive talk - login and follow along. We are even giving you an assessment as part of this talk ;-)<a class="anchor-link" href="#This-is-an-interactive-talk---login-and-follow-along.-We-are-even-giving-you-an-assessment-as-part-of-this-talk-;-)">&#182;</a></h3><h3 id="Nothing-is-written-in-stone:-Reflects-work-practice-in-the-ACSE-MSc-for-the-last-two-years.-Constantly-evolving-as-technology-constantly-moving.">Nothing is written in stone: Reflects work practice in the ACSE MSc for the last two years. Constantly evolving as technology constantly moving.<a class="anchor-link" href="#Nothing-is-written-in-stone:-Reflects-work-practice-in-the-ACSE-MSc-for-the-last-two-years.-Constantly-evolving-as-technology-constantly-moving.">&#182;</a></h3><h3 id="Debate,-comments,-collaboration-etc-welcome.">Debate, comments, collaboration etc welcome.<a class="anchor-link" href="#Debate,-comments,-collaboration-etc-welcome.">&#182;</a></h3>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Overview-of-what-we-are-covering">Overview of what we are covering<a class="anchor-link" href="#Overview-of-what-we-are-covering">&#182;</a></h2><ul>
+<li><a href="https://jupyter.org/hub">JupyterHub</a></li>
+<li><a href="https://classroom.github.com/">GitHub Classroom</a> for distribution/submission coding assessments</li>
+<li>Autograding Python with <a href="https://okpy.org/">okpy</a></li>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code (VS Code)</a>. </li>
+<li>E-infrastructure on <a href="https://azure.microsoft.com/en-gb/">Azure Cloud</a></li>
+<li>Plagiarism detection</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Glossary">Glossary<a class="anchor-link" href="#Glossary">&#182;</a></h1><p>For simplicity we include a short glossary. It is Azure centric simply because that is the provider we have been using - but most of the technologies listed are open source and cross-platform.</p>
 <ul>
-<li>A Jupyterhub service on Azure Kubenetes Service (AKS)</li>
-<li>Distributing &amp; collecting code with GitHub Classroom</li>
+<li>VM's, <a href="https://azure.microsoft.com/en-us/services/virtual-machines/">virtual machines running on Cloud</a></li>
+<li>DSVM, <a href="https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/">Data Science Virtual Machine</a>: VM for both Windows and Linux with lots of commonly used packages preinstalled/preconfigured (full list in link provided).</li>
+<li><a href="https://labs.azure.com/">Azure Lab Services</a>: think college computer lab on a LAN; key advantage is that it is a turnkey solution that's straightforward to budget.</li>
+<li><a href="https://docs.microsoft.com/en-us/azure/aks/">Azure Kubernetes Service (AKS)</a>: Azures flavour of <a href="https://kubernetes.io/ orchestration">kubernetes</a> system for automating computer application deployment, scaling, and management.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>JupyterHub - multi-user version of Jupyter notebook designed for companies, classrooms and research labs</li>
+<li>Jupyter Notebooks - web-based interactive computational environment for creating Jupyter notebook documents.</li>
+<li>JupyterLab - next-generation user interface. Can open several notebooks, files, terminal as tabs in the same window. Offers of an IDE-like experience.</li>
+<li>Visual Studio Code is a free source-code editor made by Microsoft for Windows, Linux and macOS. Cross-language, cross-platform, <em>lots</em> of features including Live Sharing.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Follow-along:-Create-a-GitHub-account">Follow along: Create a GitHub account<a class="anchor-link" href="#Follow-along:-Create-a-GitHub-account">&#182;</a></h1><ul>
+<li>We are using GitHub to handle authentication so you need to have a GitHub account.<ul>
+<li>Using Software Carpentry (designed for novices) to train students on how to use GitHub: <a href="http://swcarpentry.github.io/git-novice/">http://swcarpentry.github.io/git-novice/</a></li>
+<li>Also using GitHub authentication for our Azure e-infrastructure because we were running into too many barriers with Service Principles when using College's Active Directory. Only an issue if you are creating your own infrastructure rather than the colleges.</li>
+<li>Nice side effect: we can set up access to pre-sessional material for offer holders in advance of them having an ICT account.</li>
+<li>Pain point: we have to create a lookup table to map GitHub username to College username.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Follow-along:-Login-to-JupyterHub">Follow along: Login to JupyterHub<a class="anchor-link" href="#Follow-along:-Login-to-JupyterHub">&#182;</a></h1><ul>
+<li>Log onto our JupyterHub server using your GitHub account - <a href="https://acse-jhub-testing.westeurope.cloudapp.azure.com/hub/login">https://acse-jhub-testing.westeurope.cloudapp.azure.com/hub/login</a><ul>
+<li>In this case set up with AKS.</li>
+<li>This can be a little flaky (Kubernetes takes lots of tweaking - one of the reasons we are happy for ICT to take ownership); you may have to wait ~10mins if you are a new user as it allocates disk space etc for you. If you get 'Spawn failed: Timeout' then refresh your page (took 3 tries for me this morning).</li>
+<li>Did not use Azure Labs here because the last time we checked it was non-trivial to get port 80 forwarded - we believe this is an upcoming feature.</li>
+<li>Can also provision JupyterHub with a single 'fat' VM. Works fine for small classes but it does not scale! Often use this approach for conference tutorials etc.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Follow along: Get your assignment from GitHub Classroom <WIP></h1>
+<ul>
+<li>GitHub Classroom - follow the link and accept the assignment... <a href="https://classroom.github.com/a/g4jAQPKr">https://classroom.github.com/a/g4jAQPKr</a></li>
+<li>This will create a unique repo for <em>your</em> assignment under the GitHub org we have created for this talk.<ul>
+<li>Pro-tip: Create a new org for each year of the course (or module as we quickly end up with thousands of repositories within that org).</li>
+</ul>
+</li>
+<li>Copy the repo URL; go back to your JupyterHub window; click new-&gt;Terminal; git clone <your-unique-assignment-repo>; return to previous JupyterHub tab and you will see the new folder listed; click to open.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Jupyter/Jupyterhub">Jupyter/Jupyterhub<a class="anchor-link" href="#Jupyter/Jupyterhub">&#182;</a></h2><ul>
+<li>Azure Kubernetes Service (AKS) - scalable</li>
+<li>Azure Labs - turn key</li>
+<li>Fat VM - Short lead time</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Using IC AAD vs GitHub for authentication. <ul>
+<li>Many other authenticators exist</li>
+</ul>
+</li>
+<li>Can run multiple environments on one Jupyterhub instance</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Autograding-Do's">Autograding Do's<a class="anchor-link" href="#Autograding-Do's">&#182;</a></h2><p>Be <em>very</em> specific and beware of the <a href="https://en.wikipedia.org/wiki/Barometer_question">Barometer question</a>:</p>
+<ul>
+<li>Treat the first few assignments as training students to become autograding-aware. </li>
+<li>Provide skeleton code, API'd and variable names so you can actually write tests, eg <code>assert result(life) == 42</code>.<ul>
+<li>Given the chance students will 'astonish' you in their ability not to follow the problem specification.</li>
+</ul>
+</li>
+<li>Stress capitalisation.</li>
+<li>Floating-point comparisons and use of norms.</li>
+<li>Test your tests (ideally set up CI - currently using GitHub actions).</li>
+<li>Need to break assessments into carefully defined steps to refine the granularity of feedback and measure of learning outcomes.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Autograding-Don'ts">Autograding Don'ts<a class="anchor-link" href="#Autograding-Don'ts">&#182;</a></h2><ul>
+<li>Don't use plots/figures as basis of tests.</li>
+<li>Don't send marks without a human in the loop.</li>
+<li>Don't have monolithic questions.</li>
+<li>Don't use as sole basis for assessment. Algorithms can go wrong...just look at A-level feasico.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Part-II---Labs-&amp;-VS-Code">Part II - Labs &amp; VS Code<a class="anchor-link" href="#Part-II---Labs-&amp;-VS-Code">&#182;</a></h2><ul>
+<li>We'll now do a (non-hands on) demo with an Azure Lab instead.</li>
+<li><a href="https://labs.azure.com/">https://labs.azure.com/</a></li>
+<li>Lab setup is <em>not</em> instant (can be a couple of hours with some interaction)</li>
+<li>Ditto for resizing</li>
+<li>Hand out specific sized VM with copy of template machine</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Key Features:</p>
+<ul>
+<li>Email out invitations/ see your audience</li>
+<li>Schedule core events</li>
+<li>Quota of extra time outside events</li>
+<li>Windows (RDP) &amp; Linux (RDP &amp; SSH) templates</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>We'll connect to a copy of the Linux DSVM (need SSH)</li>
+<li>Demonstrate a workaround to get to a Jupyter notebook in the browser</li>
+<li>Demonstrate connecting with VS Code instead.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Visual-Studio-Code">Visual Studio Code<a class="anchor-link" href="#Visual-Studio-Code">&#182;</a></h2><p><a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+<ul>
+<li>Free, lightweight cross-platform code editor with IDE-like features</li>
+<li><em>Not</em> Visual Studio (no compilers)</li>
+<li>Extensible, configurable</li>
+<li>Large community doing support</li>
+<li>Supports remote editing and collaboration tools</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-we-covered">What we covered<a class="anchor-link" href="#What-we-covered">&#182;</a></h2><ul>
+<li>JupyterHub</li>
+<li>GitHub Classroom for distribution/submission coding assessments</li>
 <li>Autograding Python with <code>okpy</code></li>
+<li>VS Code/IDE </li>
+<li>e-infrastructure on Azure Cloud</li>
 </ul>
 
 </div>
@@ -13222,54 +13433,28 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Hello-Everyone">Hello Everyone<a class="anchor-link" href="#Hello-Everyone">&#182;</a></h1><p>What we're covering - Part II:</p>
+<h2 id="What-we-haven't-done-yet---need-to-discuss">What we haven't done yet - need to discuss<a class="anchor-link" href="#What-we-haven't-done-yet---need-to-discuss">&#182;</a></h2><ul>
+<li>Plagiarism detection</li>
+<li>Blackboard integration</li>
+<li>Other languages (will be similar for many, but not all Jupyter kernels)</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Jupyterbook">Jupyterbook<a class="anchor-link" href="#Jupyterbook">&#182;</a></h2><p><a href="https://jupyterbook.org/">https://jupyterbook.org/</a></p>
 <ul>
-<li>A (somewhat) near turnkey solution on an Azure Lab VM</li>
-<li>Connecting Visual Studio Code with a remote computer</li>
-<li>VS Code as a collaboration tool.</li>
+<li>Mix multiple notebooks up into organised webpages</li>
+<li>Text (markdown) &amp; code (notebooks)</li>
+<li>Run live code (mybinder.org &amp; Thebelab)</li>
+<li>Instant links to jupyterhub</li>
+<li>Easy to serve on GitHub Pages</li>
 </ul>
+<p>Example created by ESE undergrad Student Shapers <a href="https://primer-computational-mathematics.github.io">https://primer-computational-mathematics.github.io</a></p>
 
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Terminology:">Terminology:<a class="anchor-link" href="#Terminology:">&#182;</a></h1><ul>
-<li>Azure Labs</li>
-<li>Azure Kubenetes Service</li>
-<li>Jupyterhub</li>
-<li>Jupyter notebooks/labs</li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-II---to-Jupyterhub">Part II - to Jupyterhub<a class="anchor-link" href="#Part-II---to-Jupyterhub">&#182;</a></h2>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Autograding-Do's">Autograding Do's<a class="anchor-link" href="#Autograding-Do's">&#182;</a></h2>
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Autograding-Don'ts">Autograding Don'ts<a class="anchor-link" href="#Autograding-Don'ts">&#182;</a></h2>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-II---Labs-&amp;-VS-Code">Part II - Labs &amp; VS Code<a class="anchor-link" href="#Part-II---Labs-&amp;-VS-Code">&#182;</a></h2>
 </div>
 </div>
 </div></section></section><section><section>
